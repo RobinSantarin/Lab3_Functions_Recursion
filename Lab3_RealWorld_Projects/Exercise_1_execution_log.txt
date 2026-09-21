@@ -1,0 +1,37 @@
+=== EXERCISE 1: EQUIPMENT DIAGNOSTIC SYSTEM ===
+Student: SANTARIN
+Seed: 65
+Favorite Artist: UNCLE DAGS
+Generated Equipment Data: [117, 111, -5, 99, 93, 87]
+[LOG] Starting process_readings
+[LOG] Completed process_readings
+
+Validation Results:
+Valid readings: 5
+Invalid readings: 1
+  Reading 3 = -5 -> INVALID (Reading -5 is outside the valid range 0-120.)
+
+Diagnostic Results:
+  Reading 1: 117.00 -> calibrated 124.60 -> HIGH
+  Reading 2: 111.00 -> calibrated 118.21 -> HIGH
+  Reading 4: 99.00 -> calibrated 105.43 -> HIGH
+  Reading 5: 93.00 -> calibrated 99.05 -> HIGH
+  Reading 6: 87.00 -> calibrated 92.66 -> HIGH
+
+Final Output:
+Processed readings: 6
+Valid: 5 | Invalid: 1
+Classification: LOW=0, NORMAL=0, HIGH=5
+Overall equipment status: ABNORMAL
+
+[stderr]
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.

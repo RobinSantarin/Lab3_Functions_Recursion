@@ -1,0 +1,65 @@
+=== EXERCISE 3: INTELLIGENT EQUIPMENT MONITORING PIPELINE ===
+Student-Specific Inputs: LAST_NAME=SANTARIN, SEED_NUM=65, FAVORITE_ARTIST=UNCLE DAGS
+
+Generated Telemetry Data:
+[79, 96, 113, 135, 76, 93, 110, -8, 73, 90]
+[DECORATOR] Monitoring diagnostic processing...
+[DECORATOR] Diagnostic processing complete.
+
+Valid/Invalid Results:
+Valid readings: 8
+  Sensor 1: 79 -> 84.13 -> HIGH
+  Sensor 2: 96 -> 102.24 -> HIGH
+  Sensor 3: 113 -> 120.34 -> HIGH
+  Sensor 5: 76 -> 80.94 -> HIGH
+  Sensor 6: 93 -> 99.05 -> HIGH
+  Sensor 7: 110 -> 117.15 -> HIGH
+  Sensor 9: 73 -> 77.74 -> NORMAL
+  Sensor 10: 90 -> 95.85 -> HIGH
+Invalid readings: 2
+  Sensor 4: 135 -> INVALID (Out-of-range telemetry: 135)
+  Sensor 8: -8 -> INVALID (Out-of-range telemetry: -8)
+
+Processed Results:
+  Sensor 1: processed=84.13, status=HIGH
+  Sensor 2: processed=102.24, status=HIGH
+  Sensor 3: processed=120.34, status=HIGH
+  Sensor 5: processed=80.94, status=HIGH
+  Sensor 6: processed=99.05, status=HIGH
+  Sensor 7: processed=117.15, status=HIGH
+  Sensor 9: processed=77.74, status=NORMAL
+  Sensor 10: processed=95.85, status=HIGH
+
+Recursive Analysis:
+  Sensor 4 abnormal value 135: 135 -> 120
+
+Final Diagnostic Summary:
+Number of processed readings: 10
+Valid: 8
+Invalid: 2
+Detected abnormal conditions: 1
+Classification: LOW=0, NORMAL=1, HIGH=7
+Overall equipment status: ABNORMAL
+
+Execution Log:
+  Generator produced telemetry values one at a time.
+  Lambda calibration was applied to valid readings.
+  Decorator monitored the main processing function.
+  Exception handling skipped invalid readings without stopping.
+  Recursion traced the detected abnormal condition to its base case.
+
+Final Output:
+Equipment status: ABNORMAL
+Processed=10, Valid=8, Invalid=2, Abnormal=1
+
+[stderr]
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 720, in _warm_feature_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 704, in _warm_collaboration_flows
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/generated/interface/models.py", line 32317, in hydrate_crdt_from_proto
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/remote.py", line 749, in __call__
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/client.py", line 150, in call
+artifact_tool.rpc.client.RemoteError: hydrateCrdtFromProto requires an empty collaborative document.
